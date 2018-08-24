@@ -1,0 +1,7 @@
+{
+  "name": "ciganaDigital",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "ionic-angular"
+}

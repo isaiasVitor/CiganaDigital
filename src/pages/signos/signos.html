@@ -1,0 +1,31 @@
+<ion-header>
+    <ion-navbar>
+        <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+        <ion-title>Signos</ion-title>
+    </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+
+    <!--
+    <ion-list>
+        <ion-item *ngFor="let item of signos" (click)="detalheSigno(item)">
+            {{item.signo}}
+            <p>{{item.significado}}</p>
+        </ion-item>
+    </ion-list>
+-->
+
+    <ion-slides pager>
+        <ion-slide *ngFor="let item of signos">
+            <button ion-button full large (click)="detalheSigno(item)">
+                {{item.signo}}
+            </button>
+        </ion-slide>
+
+    </ion-slides>
+
+</ion-content>

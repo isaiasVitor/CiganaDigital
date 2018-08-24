@@ -1,0 +1,49 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>Tempo Vivido</ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+    <ion-card>
+        <ion-card-header>
+            <h2>Veja o tempo que ja viveu</h2>
+        </ion-card-header>
+        <ion-card-content>
+            <ion-list>
+                <ion-item>
+                    <ion-label>Aniversario</ion-label>
+                    <ion-datetime displayFormat="DD/MM/YYYY" pickerFormat="DD/MM/YYYY" [(ngModel)]="userTempo.aniversario"></ion-datetime>
+                </ion-item>
+                <button ion-button name="gerarTempodeVida" (click)="gerarTempodeVida()">Gerar Data</button>
+            </ion-list>
+        </ion-card-content>
+    </ion-card>
+
+    <ion-card *ngIf="userTempo.idade != NULL">
+        <ion-card-content>
+            <ion-list no-lines>
+                <ion-item>
+                    {{userTempo.idade}}
+                </ion-item>
+                <ion-item>
+                    {{userTempo.meses}}
+                </ion-item>
+                <ion-item>
+                    {{userTempo.semanas}}
+                </ion-item>
+                <ion-item>
+                    {{userTempo.dias}}
+                </ion-item>
+                <ion-item>
+                    {{userTempo.segundos}}
+                </ion-item>
+                <ion-item>
+                    {{userTempo.milisegundos}}
+                </ion-item>
+
+            </ion-list>
+        </ion-card-content>
+    </ion-card>
+
+</ion-content>

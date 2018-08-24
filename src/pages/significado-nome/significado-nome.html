@@ -1,0 +1,41 @@
+<ion-header>
+    <ion-navbar>
+        <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+        <ion-title>Significado De Nomes</ion-title>
+    </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+
+    <ion-list>
+        <form novalidate (ngSubmit)="getNome()" [formGroup]="validate">
+            <ion-item>
+                <ion-label floating>Digite seu Nome</ion-label>
+
+                <ion-input type="text" name="nome" formControlName="nome" [(ngModel)]="pesquisa.nome"></ion-input>
+
+            </ion-item>
+
+            <ion-item no-lines *ngIf="( validate.get('nome').hasError('required') ||validate.get('nome').hasError('pattern') && validate.get('nome').touched )">
+                <div class="error" *ngIf="validate.get('nome').hasError('required') && validate.get('nome').touched">
+                    <p>Por favor preencha o campo para pesquisar</p>
+                </div>
+                <div class="error" *ngIf="validate.get('nome').hasError('pattern') && validate.get('nome').touched">
+                    <p>Seu nome não possui caracter especial</p>
+                </div>
+            </ion-item>
+            <ion-item no-lines>
+                <button type="submit" ion-button block color="primary" [disabled]="validate.invalid">Pesquisar</button>
+            </ion-item>
+
+            <ion-item *ngFor="let item of nomes" (click)="detalheNome(item)">
+                {{item.nome}}
+                <p>{{item.significado}}</p>
+            </ion-item>
+        </form>
+    </ion-list>
+
+</ion-content>
